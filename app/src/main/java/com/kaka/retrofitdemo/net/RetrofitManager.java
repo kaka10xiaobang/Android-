@@ -39,7 +39,7 @@ public class RetrofitManager {
     public static<T> T create(Class<T> clazz){
         Retrofit retrofit=new Retrofit.Builder()
                 .client(getOkHttpClient())
-                .baseUrl("http://wanandroid.com/")
+                .baseUrl("http://wanandroid.com/")//鸿洋大神wanandroid的地址
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

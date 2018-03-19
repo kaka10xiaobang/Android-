@@ -1,6 +1,6 @@
 package com.kaka.retrofitdemo.net;
 
-import com.kaka.retrofitdemo.net.bean.Advertisement;
+import com.kaka.retrofitdemo.net.bean.ResponseData;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -13,5 +13,5 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET("/banner/json")
-    Observable<Advertisement> getHomeBanners();
+    Observable<ResponseData> getHomeBanners();
 }
