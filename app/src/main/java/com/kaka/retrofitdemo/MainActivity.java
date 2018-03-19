@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.kaka.retrofitdemo.net.Advertisement;
+import com.kaka.retrofitdemo.net.bean.Advertisement;
 import com.kaka.retrofitdemo.net.ApiService;
 import com.kaka.retrofitdemo.net.RetrofitManager;
 
-import io.reactivex.Scheduler;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -17,6 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
+    Observable<Advertisement> call;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnTest).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RetrofitManager.create(ApiService.class).getHomeBanners()
+                call=RetrofitManager.create(ApiService.class).getHomeBanners();
+                        call.subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeOn(Schedulers.io())
                         .subscribe(new Consumer<Advertisement>() {
                             @Override
                             public void accept(@NonNull Advertisement advertisement) throws Exception {
@@ -41,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         });
+
+
+
     }
 }

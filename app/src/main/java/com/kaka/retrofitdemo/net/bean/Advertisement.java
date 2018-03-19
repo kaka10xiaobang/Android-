@@ -1,4 +1,4 @@
-package com.kaka.retrofitdemo.net;
+package com.kaka.retrofitdemo.net.bean;
 
 /**
  * Created by kaka on 2018/3/8.

@@ -51,4 +51,5 @@ dependencies {
     compile rootProject.ext.dependencies["rxjava"]
     compile rootProject.ext.dependencies["rxandroid"]
     compile rootProject.ext.dependencies["rxbinding2"]
+    compile rootProject.ext.dependencies["utilcode"]
 }

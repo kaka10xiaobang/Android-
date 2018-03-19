@@ -1,5 +1,7 @@
 package com.kaka.retrofitdemo.net;
 
+import com.kaka.retrofitdemo.net.bean.Advertisement;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 
